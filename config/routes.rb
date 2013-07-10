@@ -1,7 +1,14 @@
 SampleApp::Application.routes.draw do
-  get "static_pages/home"
-  get "static_pages/help"
-  get "static_pages/about"
+
+  get "users/new"
+#This code auto generates named routes for use in the controllers and views:
+#changed from ex. get 'static_pages/about'
+  root to: 'static_pages#home'  #root_path -> '/', root_url -> 'http://localhost:3000/'
+  get '/signup', to: 'users#new'
+  get '/help',    to: 'static_pages#help'
+  get  '/about',   to: 'static_pages#about'  # about_path -> 's/about', about_url  -> 'http://localhost:3000/about'
+  get '/contact', to: 'static_pages#contact'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
